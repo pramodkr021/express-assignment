@@ -1,0 +1,26 @@
+{
+  "name": "express-assignment",
+  "version": "1.0.0",
+  "description": "to do list API using express JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pramodkr021/express-assignment.git"
+  },
+  "author": "Pramod Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pramodkr021/express-assignment/issues"
+  },
+  "homepage": "https://github.com/pramodkr021/express-assignment#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
