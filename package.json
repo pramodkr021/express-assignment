@@ -1,7 +1,7 @@
 {
   "name": "express-assignment",
   "version": "1.0.0",
-  "description": "to do list API using express JS",
+  "description": "to do list API using express JS, node JS and Mongo DB",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/pramodkr021/express-assignment#readme",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongoose": "^8.19.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

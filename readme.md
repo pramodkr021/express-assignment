@@ -38,19 +38,3 @@ response: Returns the updated task object.
 
 # WORKFLOW
 initialize the node application using express. The task are stored in array
-
-tasks = [{},{}]
-
-Each task will contain the all the task, where individula task will be an object as followed 
-{
-    id: <unique identifier>,
-    item: <task description>,
-    completed: false,       // default value
-    createdAt: <timestamp>   // system generated
-}
-
-When a task is added:
-    Id check is done to avoid same id for two different task.
-    The completed property is automatically set to false.
-    The createdAt property is automatically set using new Date().
-
