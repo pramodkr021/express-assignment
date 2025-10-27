@@ -12,83 +12,85 @@
 | ------ | -------- | --------------------------- |
 | POST   | `/`      | Adds a new task to the list |
 
-Request Body <br>
-{
-  "task": "TASK TO BE ADDED"
+<b>Request Body:</b> <br>
+{<br>
+  "task": "TASK TO BE ADDED"<br>
 }
 
-Response<br>
-{
-  "success":true,
-  "data":{
-    "task": "TASK TO BE ADDED",
-    "completed": false,
-    "createdAt": "DATE"
-  }
+<b>Response</b><br>
+{<br>
+  "success":true,<br>
+  "data":{<br>
+    "task": "TASK TO BE ADDED",<br>
+    "completed": false,<br>
+    "createdAt": "DATE"<br>
+  }<br>
 }<br>
-
+<hr>
 
 | Method | Endpoint | Description           |
 | ------ | -------- | --------------------- |
 | GET    | `/`      | Returns all the tasks |
 
-Response<br>
-{
-    "success":true,
-    "data":
-    [{
-        "_id": "id",
-        "task": "Sample",
-        "completed": false,
-        "createdAt": "DATE"
+<b>Response</b><br>
+{<br>
+    "success":true,<br>
+    "data":<br>
+    [{<br>
+    "_id": "id",<br>
+        "task": "Sample",<br>
+        "completed": false,<br>
+        "createdAt": "DATE"<br>
     }]
 }
 <br>
+<hr>
 
 
 | Method | Endpoint      | Description          |
 | ------ | ------------- | -------------------- |
 | DELETE | `/delete/:id` | Deletes a task by ID |
 
-Response<br>
-{
-    "success": true,
-    "message": "Task deleted successfully"
+<b>Response</b><br>
+{<br>
+    "success": true,<br>
+    "message": "Task deleted successfully"<br>
 }<br>
-
+<hr>
 
 | Method | Endpoint      | Description                              |
 | ------ | ------------- | ---------------------------------------- |
 | PATCH  | `/toggle/:id` | Toggles the `completed` status of a task |
 
-Response<br>
-{
-  "success": true,
-  "data": [{
-    <!-- ENTIRE TASK OBJECT -->
-  }]
+<b>Response</b><br>
+{<br>
+  "success": true,<br>
+  "data": [{<br>
+    <!-- ENTIRE TASK OBJECT --><br>
+  }]<br>
 }<br>
+<hr>
 
 
 | Method | Endpoint      | Description           |
 | ------ | ------------- | --------------------- |
 | PUT    | `/update/:id` | Updates the task text |
 
-Request Body<br>
-{
-  "task": "UPDATED TASK"
+<b>Request Body:</b> <br>
+{<br>
+  "task": "UPDATED TASK"<br>
 }<br>
 
-Response<br>
-{
-    "success":true,
-    "data": {
-        "_id": "id",
-        "task": "UPDATED TASK",
-        "completed": false
-    }
+<b>Response</b><br>
+{<br>
+    "success":true,<br>
+    "data": {<br>
+        "_id": "id",<br>
+        "task": "UPDATED TASK",<br>
+        "completed": false<br>
+    }<br>
 }
-
+<br>
 
 
 # Requirements
