@@ -8,8 +8,8 @@ const taskRouter = express.Router()
 taskRouter.post("/", addTask)
 taskRouter.get("/", getAllTasks)
 // taskRouter.get("/user/:id", getUserSpecificTask)
-taskRouter.patch("toggle/:id", toggleTaskStatusById)
-taskRouter.put("update/:id", updateTaskById)
-taskRouter.delete("delete/:id", deleteTaskById)
+taskRouter.patch("/toggle/:id", toggleTaskStatusById)
+taskRouter.put("/update/:id", updateTaskById)
+taskRouter.delete("/delete/:id", deleteTaskById)
 
 module.exports = taskRouter

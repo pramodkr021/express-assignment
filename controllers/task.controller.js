@@ -7,10 +7,10 @@ const addTask = async (req, res) => {
         return res.status(422).json({ "message": "Incomplete Data" })
     }
 
-    await taskModel.create(data)
+    const newTask = await taskModel.create(data)
     return res.status(201).json({
         "success": true,
-        "message": "task added sucessfully"
+        "data": newTask
     })
 }
 
@@ -43,30 +43,30 @@ const getAllTasks = async (req, res) => {
 
 const toggleTaskStatusById = async (req, res) => {
     try {
-        const taskId = req.params.id
+        const taskId = req.params.id;
 
-        const updatedTask = await taskModel.findByIdAndUpdate(
-            taskId,
-            { $bit: { completed: { xor: 1 } } },
-            { new: true }
-        )
-        if (!updatedTask) {
+        const task = await taskModel.findById(taskId);
+        if (!task) {
             return res.status(404).json({
-                "success": false,
-                "message": "Invalid Task ID"
-            })
+                success: false,
+                message: "Invalid Task ID"
+            });
         }
+
+        task.completed = !task.completed;
+        await task.save();
+
         return res.status(200).json({
-            "success": true,
-            "data": updatedTask
-        })
+            success: true,
+            data: task
+        });
     } catch (error) {
         return res.status(500).json({
-            "success": false,
-            "message": "Something went wrong"
-        })
+            success: false,
+            message: "Something went wrong"
+        });
     }
-}
+};
 
 const updateTaskById = async (req, res) => {
     try {
@@ -96,7 +96,6 @@ const updateTaskById = async (req, res) => {
 const deleteTaskById = async (req, res) => {
     const id = req.params.id
     const status = await taskModel.findByIdAndDelete(id)
-
     if (!status) {
         return res.status(404).message({
             "success": false,
@@ -106,8 +105,12 @@ const deleteTaskById = async (req, res) => {
 
     return res.status(200).json({
         "success": true,
-        message: "Task delete successful"
+        "message": "Task deleted successfully"
     })
 }
 
-module.exports = { addTask, getAllTasks, getUserSpecificTask, toggleTaskStatusById, updateTaskById, deleteTaskById }
+module.exports = {
+    addTask, getAllTasks,
+    // getUserSpecificTask, 
+    toggleTaskStatusById, updateTaskById, deleteTaskById
+}
