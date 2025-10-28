@@ -1,80 +1,63 @@
-# SETUP INSTRUCTIONS
-1. git clone <repo-url>
-2. cd <project-folder>
-3. npm install
-4. Create a .env file in the root and set:
-5. MONGODB_URI=mongodb://127.0.0.1:27017/toDoList<br>
-OR<br>
-Use your MongoDB Atlas URL.
-6. npm start
-
-
-# URL
-http://localhost:8000/tasks/  
-<!-- use get or post for respective api endpoint -->
-
-
 # Assignment 7 : Identifying APIs for To-Do List App
 
-# Requirements
-1. Node.js
-2. MongoDB (Local or Atlas)
+<h3>Functionalities</h3>
+
+1. <b>Add a todo item</b><br>
+endpoint: "/add"<br>
+method: POST<br>
+description: allows the user to add the item to an empty array list<br>
+request body: {<br>
+    id: "ID to b provided"<br>
+    item : "TASK TO BE ADDED"<br>
+    }<br>
+response: Returns the created task with auto-generated fields (completed = false, createdAt = new Date()).<br>
 
 <hr>
-<b>Functionalities</b>
-
-1. Add a todo item
-endpoint: "/add"
-method: POST
-description: allows the user to add the item to an empty array list
-request body: {
-    id: "to be provided",
-    item : "TASK TO BE ADDED"
-    }
-response: Returns the created task with auto-generated fields (completed = false, createdAt = new Date()).
+2. <b>Remove a todo item</b><br>
+endpoint: "/remove/:id"<br>
+method: DELETE<br>
+description: allows the user to remove the item from the list<br>
+request body: None<br>
+params: "id"<br>
+response: Returns a success message or error if task not found.<br>
 
 <hr>
-2. Remove a todo item
-endpoint: "/remove/:id"
-method: DELETE
-description: allows the user to remove the item from the list in case of accidental add.
-request body: None
-params: "id"
-response: Returns a success message or error if task not found.
+3. <b>Get the entire list of todo items</b> <br>
+endpoint: "/"<br>
+method: GET<br>
+description: get all the items from a to do list<br>
+request body: None<br>
+response: Returns an array of all tasks.<br>
 
 <hr>
-3. Get the entire list of todo items
-endpoint: "/"
-method: GET
-description: get all the items from a to do list
-request body: None
-response: Returns an array of all tasks.
+4. <b>Mark a task completed</b> <br>
+endpoint: "/complete/:id"<br>
+method: PATCH<br>
+description: set a task completed value to true or viceversa<br>
+params: id<br>
+response: Returns the updated task object.<br>
 
 <hr>
-4. Mark a task completed
-endpoint: "/complete/:id"
-method: PATCH
-description: set a task completed value to true or viceversa
-params: id
-response: Returns the updated task object.
+5. <b>Update a task / rename the task</b> <br>
+endpoint: "/update/:id"<br>
+method: PUT<br>
+description: update the task<br>
+params: id<br>
+response: return the updated object<br>
+
 <hr>
-5. Update a task / rename the task
-endpoint: "/update/:id"
-method: PUT
-description: update the task
-params: id
-response: return the updated object
-<hr>
-# WORKFLOW
+
+<h3>WORKFLOW</h3>
 initialize the node application using express. The task are stored in array
 
 tasks = [{},{}]
 
-Each task will contain the all the task, where individula task will be an object as followed 
-{
-    id: <unique identifier>,
-    item: <task description>,
-    completed: false,       // default value
-    createdAt: <timestamp>   // system generated
-}
+Each task will contain the all the task, where individual task will be an object as followed<br>
+{<br>
+    id: //unique identifier,<br>
+    item: //task description,<br>
+    completed: false,       // default value<br>
+    createdAt: <timestamp>   // system generated<br>
+}<br>
 
+Before adding a new task will check for the id duplication so that no two task have the same id value
