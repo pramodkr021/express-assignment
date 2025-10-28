@@ -1,103 +1,3 @@
-# Assignment 7 : Identifying APIs for To-Do List App
-
-# FEATURES
-1. Add a new to-do task<br>
-2. View all tasks<br>
-3. Delete a task<br>
-4. Update a task<br>
-5. Mark task as completed / toggle completion status<br>
-
-# API Endpoints
-| Method | Endpoint | Description                 |
-| ------ | -------- | --------------------------- |
-| POST   | `/`      | Adds a new task to the list |
-
-<b>Request Body:</b> <br>
-{<br>
-  "task": "TASK TO BE ADDED"<br>
-}
-
-<b>Response</b><br>
-{<br>
-  "success":true,<br>
-  "data":{<br>
-    "task": "TASK TO BE ADDED",<br>
-    "completed": false,<br>
-    "createdAt": "DATE"<br>
-  }<br>
-}<br>
-<hr>
-
-| Method | Endpoint | Description           |
-| ------ | -------- | --------------------- |
-| GET    | `/`      | Returns all the tasks |
-
-<b>Response</b><br>
-{<br>
-    "success":true,<br>
-    "data":<br>
-    [{<br>
-    "_id": "id",<br>
-        "task": "Sample",<br>
-        "completed": false,<br>
-        "createdAt": "DATE"<br>
-    }]
-}
-<br>
-<hr>
-
-
-| Method | Endpoint      | Description          |
-| ------ | ------------- | -------------------- |
-| DELETE | `/delete/:id` | Deletes a task by ID |
-
-<b>Response</b><br>
-{<br>
-    "success": true,<br>
-    "message": "Task deleted successfully"<br>
-}<br>
-<hr>
-
-| Method | Endpoint      | Description                              |
-| ------ | ------------- | ---------------------------------------- |
-| PATCH  | `/toggle/:id` | Toggles the `completed` status of a task |
-
-<b>Response</b><br>
-{<br>
-  "success": true,<br>
-  "data": [{<br>
-    <!-- ENTIRE TASK OBJECT --><br>
-  }]<br>
-}<br>
-<hr>
-
-
-| Method | Endpoint      | Description           |
-| ------ | ------------- | --------------------- |
-| PUT    | `/update/:id` | Updates the task text |
-
-<b>Request Body:</b> <br>
-{<br>
-  "task": "UPDATED TASK"<br>
-}<br>
-
-<b>Response</b><br>
-{<br>
-    "success":true,<br>
-    "data": {<br>
-        "_id": "id",<br>
-        "task": "UPDATED TASK",<br>
-        "completed": false<br>
-    }<br>
-}
-<br>
-
-
-# Requirements
-1. Node.js
-2. MongoDB (Local or Atlas)
-
-
 # SETUP INSTRUCTIONS
 1. git clone <repo-url>
 2. cd <project-folder>
@@ -112,3 +12,69 @@ Use your MongoDB Atlas URL.
 # URL
 http://localhost:8000/tasks/  
 <!-- use get or post for respective api endpoint -->
+
+
+# Assignment 7 : Identifying APIs for To-Do List App
+
+# Requirements
+1. Node.js
+2. MongoDB (Local or Atlas)
+
+<hr>
+<b>Functionalities</b>
+
+1. Add a todo item
+endpoint: "/add"
+method: POST
+description: allows the user to add the item to an empty array list
+request body: {
+    id: "to be provided",
+    item : "TASK TO BE ADDED"
+    }
+response: Returns the created task with auto-generated fields (completed = false, createdAt = new Date()).
+
+<hr>
+2. Remove a todo item
+endpoint: "/remove/:id"
+method: DELETE
+description: allows the user to remove the item from the list in case of accidental add.
+request body: None
+params: "id"
+response: Returns a success message or error if task not found.
+
+<hr>
+3. Get the entire list of todo items
+endpoint: "/"
+method: GET
+description: get all the items from a to do list
+request body: None
+response: Returns an array of all tasks.
+
+<hr>
+4. Mark a task completed
+endpoint: "/complete/:id"
+method: PATCH
+description: set a task completed value to true or viceversa
+params: id
+response: Returns the updated task object.
+<hr>
+5. Update a task / rename the task
+endpoint: "/update/:id"
+method: PUT
+description: update the task
+params: id
+response: return the updated object
+<hr>
+# WORKFLOW
+initialize the node application using express. The task are stored in array
+
+tasks = [{},{}]
+
+Each task will contain the all the task, where individula task will be an object as followed 
+{
+    id: <unique identifier>,
+    item: <task description>,
+    completed: false,       // default value
+    createdAt: <timestamp>   // system generated
+}
+
