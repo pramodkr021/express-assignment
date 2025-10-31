@@ -7,7 +7,6 @@ endpoint: "/add"<br>
 method: POST<br>
 description: allows the user to add the item to an empty array list<br>
 request body: {<br>
-    id: "ID to b provided"<br>
     item : "TASK TO BE ADDED"<br>
     }<br>
 response: Returns the created task with auto-generated fields (completed = false, createdAt = new Date()).<br>
