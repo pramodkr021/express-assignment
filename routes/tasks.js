@@ -1,7 +1,7 @@
 const express = require("express")
 const { addTask, getAllTasks, 
     // getUserSpecificTask, 
-    toggleTaskStatusById, updateTaskById, deleteTaskById } = require("../controllers/task.controller")
+    toggleTaskStatusById, updateTaskById, deleteTaskById, searchTask } = require("../controllers/task.controller")
 
 const taskRouter = express.Router()
 

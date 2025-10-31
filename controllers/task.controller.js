@@ -15,7 +15,14 @@ const addTask = async (req, res) => {
 }
 
 const getAllTasks = async (req, res) => {
-    const result = await taskModel.find()
+    const search = req.query.search
+    let filter = {}
+
+    if (search) {
+        filter.task = { $regex: search, $options: "i" }
+    }
+    
+    const result = await taskModel.find(filter)
 
     return res.status(200).json({
         "success": true,
