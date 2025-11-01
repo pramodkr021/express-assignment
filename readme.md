@@ -1,58 +1,28 @@
 # Assignment 7 : Identifying APIs for To-Do List App
 
+<h2>Overview of the repo</h2>
+<p><a href="https://github.com/pramodkr021/frontend-todoList" target="_blank">Frontend</a> currently deployed on netlify. <br>
+    <a href="https://react-todo-pkr.netlify.app/">https://react-todo-pkr.netlify.app</a><br>
+    <br>
+    Backend deployed on render
+</p>
+<hr>
+<h3>Project Setup for backend</h3>
+1. Clone or Fork the repo<br>
+2. cd <Project Directory><br>
+3. npm install<br>
+4. create .env in the root<br>
+5. Add env variable<br>
+&nbsp;&nbsp;&nbsp;MONGO_URL= atlas URL or mongodb://127.0.0.1:27017<br>
+&nbsp;&nbsp;&nbsp;PORT=8000<br>
+&nbsp;&nbsp;&nbsp;FRONTEND_URL=http://localhost:5173<br>
+6. npm run start<br>
+    <hr>
+    
 <h3>Functionalities</h3>
 
-1. <b>Add a todo item</b><br>
-endpoint: "/add"<br>
-method: POST<br>
-description: allows the user to add the item to an empty array list<br>
-request body: {<br>
-    item : "TASK TO BE ADDED"<br>
-    }<br>
-response: Returns the created task with auto-generated fields (completed = false, createdAt = new Date()).<br>
-
-<hr>
-2. <b>Remove a todo item</b><br>
-endpoint: "/remove/:id"<br>
-method: DELETE<br>
-description: allows the user to remove the item from the list<br>
-request body: None<br>
-params: "id"<br>
-response: Returns a success message or error if task not found.<br>
-
-<hr>
-3. <b>Get the entire list of todo items</b> <br>
-endpoint: "/"<br>
-method: GET<br>
-description: get all the items from a to do list<br>
-request body: None<br>
-response: Returns an array of all tasks.<br>
-
-<hr>
-4. <b>Mark a task completed</b> <br>
-endpoint: "/complete/:id"<br>
-method: PATCH<br>
-description: set a task completed value to true or viceversa<br>
-params: id<br>
-response: Returns the updated task object.<br>
-
-<hr>
-5. <b>Update a task / rename the task</b> <br>
-endpoint: "/update/:id"<br>
-method: PUT<br>
-description: update the task<br>
-params: id<br>
-response: return the updated object<br>
-
-<hr>
-
-<h3>WORKFLOW</h3>
-initialize the node application using express. The task are stored in mongodbAtlas
-
-Each task will contain the all the task, where individual task will be an object as followed<br>
-{<br>
-    id: //unique identifier,<br>
-    item: //task description,<br>
-    completed: false,       // default value<br>
-    createdAt: <timestamp>   // system generated<br>
-}<br>
+1. Add a todo item<br>
+2. Remove a todo item<br>
+3. Mark a task completed<br>
+4. Update a task<br>
+5. Search for a task
