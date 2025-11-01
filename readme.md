@@ -47,9 +47,7 @@ response: return the updated object<br>
 <hr>
 
 <h3>WORKFLOW</h3>
-initialize the node application using express. The task are stored in array
-
-tasks = [{},{}]
+initialize the node application using express. The task are stored in mongodbAtlas
 
 Each task will contain the all the task, where individual task will be an object as followed<br>
 {<br>
@@ -58,5 +56,3 @@ Each task will contain the all the task, where individual task will be an object
     completed: false,       // default value<br>
     createdAt: <timestamp>   // system generated<br>
 }<br>
-
-Before adding a new task will check for the id duplication so that no two task have the same id value
